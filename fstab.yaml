@@ -1,0 +1,5 @@
+mountpoints:
+  /:
+    url: "https://author-p189773-e1977501.adobeaemcloud.com/bin/franklin.delivery/skiper76/natwest-xwalk/main"
+    type: "markup"
+    suffix: ".html"

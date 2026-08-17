@@ -1,0 +1,81 @@
+.cards-cover > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  gap: 24px;
+}
+
+.cards-cover > ul > li {
+  border: 1px solid #dadada;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-cover .cards-cover-card-body {
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Reserve 2 lines for the heading so body copy starts at the same height
+   across a row, whether the title wraps or not (avoids a staircase effect) */
+.cards-cover .cards-cover-card-body h1,
+.cards-cover .cards-cover-card-body h2,
+.cards-cover .cards-cover-card-body h3,
+.cards-cover .cards-cover-card-body h4,
+.cards-cover .cards-cover-card-body h5,
+.cards-cover .cards-cover-card-body h6 {
+  margin: 0 0 8px;
+  line-height: 1.2;
+  min-height: 2.4em;
+}
+
+/* Push the trailing link to the bottom so cards align across the row */
+.cards-cover .cards-cover-card-body > p:last-child {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.cards-cover .cards-cover-card-body > p:last-child a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--nw-purple-bright, var(--link-color));
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cards-cover .cards-cover-card-body > p:last-child a:any-link::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235e10b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s ease;
+}
+
+.cards-cover .cards-cover-card-body > p:last-child a:hover,
+.cards-cover .cards-cover-card-body > p:last-child a:focus {
+  text-decoration: underline;
+}
+
+.cards-cover .cards-cover-card-body > p:last-child a:hover::after,
+.cards-cover .cards-cover-card-body > p:last-child a:focus::after {
+  transform: translateX(4px);
+}
+
+.cards-cover .cards-cover-card-image {
+  line-height: 0;
+}
+
+.cards-cover > ul > li img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}

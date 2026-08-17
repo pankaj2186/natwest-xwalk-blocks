@@ -1,0 +1,17 @@
+.article-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 32px;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+}
+
+.article-byline-author {
+  font-weight: 700;
+}
+
+.article-byline-date::before {
+  content: '·';
+  margin-right: 12px;
+}

@@ -1,0 +1,138 @@
+.cards-icon > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  gap: 24px;
+}
+
+.cards-icon > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-color, #f2f2f8);
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+
+.cards-icon .cards-icon-card-image {
+  line-height: 0;
+  margin: 0 0 16px;
+}
+
+/* Icons render small, not full-width photos */
+.cards-icon .cards-icon-card-image img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.cards-icon .cards-icon-card-body {
+  margin: 0;
+}
+
+/* Uniform card title size regardless of source heading level (h2/h4) */
+.cards-icon .cards-icon-card-body h1,
+.cards-icon .cards-icon-card-body h2,
+.cards-icon .cards-icon-card-body h3,
+.cards-icon .cards-icon-card-body h4,
+.cards-icon .cards-icon-card-body h5,
+.cards-icon .cards-icon-card-body h6 {
+  margin: 0 0 16px;
+  color: var(--nw-purple, #3c1053);
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.cards-icon .cards-icon-card-body h1 a:any-link,
+.cards-icon .cards-icon-card-body h2 a:any-link,
+.cards-icon .cards-icon-card-body h3 a:any-link,
+.cards-icon .cards-icon-card-body h4 a:any-link,
+.cards-icon .cards-icon-card-body h5 a:any-link,
+.cards-icon .cards-icon-card-body h6 a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Each sub-link sits on its own row with a subtle divider */
+.cards-icon .cards-icon-card-body p {
+  margin: 0;
+  border-top: 1px solid rgb(60 16 83 / 12%);
+}
+
+.cards-icon .cards-icon-card-body h1 + p,
+.cards-icon .cards-icon-card-body h2 + p,
+.cards-icon .cards-icon-card-body h3 + p,
+.cards-icon .cards-icon-card-body h4 + p,
+.cards-icon .cards-icon-card-body h5 + p,
+.cards-icon .cards-icon-card-body h6 + p {
+  border-top: 0;
+}
+
+/* Never show a divider immediately after the icon, whatever the first element is */
+.cards-icon .cards-icon-card-body > :first-child {
+  border-top: 0;
+}
+
+/* Sub-links: clean text links with a chevron, not big pill buttons */
+.cards-icon .cards-icon-card-body p a:any-link,
+.cards-icon .cards-icon-card-body p a.button:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  margin: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px 10px 14px;
+  background: none;
+  color: var(--nw-purple-bright, #5e10b1);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  box-shadow: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Circular chevron affordance */
+.cards-icon .cards-icon-card-body p a:any-link::after,
+.cards-icon .cards-icon-card-body p a.button:any-link::after {
+  content: '';
+  flex: 0 0 auto;
+  align-self: center;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgb(94 16 177 / 8%);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%235e10b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cards-icon .cards-icon-card-body p a:hover,
+.cards-icon .cards-icon-card-body p a:focus,
+.cards-icon .cards-icon-card-body p a.button:hover,
+.cards-icon .cards-icon-card-body p a.button:focus {
+  background-color: #e8e8ef !important;
+  border-color: transparent !important;
+  color: var(--nw-purple, #3c1053) !important;
+  text-decoration: none;
+  box-shadow: none !important;
+}
+
+.cards-icon .cards-icon-card-body p a:hover::after,
+.cards-icon .cards-icon-card-body p a:focus::after,
+.cards-icon .cards-icon-card-body p a.button:hover::after,
+.cards-icon .cards-icon-card-body p a.button:focus::after {
+  background-color: #d0d0da;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%235e10b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>');
+  transform: translateX(4px);
+}

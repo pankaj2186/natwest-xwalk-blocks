@@ -1,0 +1,21 @@
+{
+  ":names": [
+    "helix-blocks"
+  ],
+  "helix-blocks": {
+    "total": 8,
+    "offset": 0,
+    "limit": 8,
+    "data": [
+      { "name": "Homepage", "path": "/" },
+      { "name": "Bank accounts", "path": "/index/bank-accounts" },
+      { "name": "Insurance", "path": "/index/insurance" },
+      { "name": "First-time buyers", "path": "/index/first-time-buyers" },
+      { "name": "Contact us", "path": "/index/contact-us" },
+      { "name": "Articles list", "path": "/index/articles" },
+      { "name": "Article page", "path": "/index/articles/managing-your-money" },
+      { "name": "Mortgage calculator", "path": "/index/mortgage-calculator" }
+    ]
+  },
+  ":type": "multi-sheet"
+}

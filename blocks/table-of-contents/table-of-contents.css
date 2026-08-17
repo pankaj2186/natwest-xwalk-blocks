@@ -1,0 +1,32 @@
+.table-of-contents {
+  position: sticky;
+  top: 24px;
+  padding: 20px 24px;
+  background-color: var(--light-color);
+  border-radius: 12px;
+}
+
+.table-of-contents .toc-heading {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.table-of-contents ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.table-of-contents a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.table-of-contents a:hover,
+.table-of-contents a:focus {
+  color: var(--link-color);
+  text-decoration: underline;
+}

@@ -1,0 +1,173 @@
+footer {
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  font-size: var(--body-font-size-s);
+}
+
+footer .footer > div {
+  margin: auto;
+  max-width: var(--content-max-width);
+  padding: 24px;
+}
+
+footer .footer .section {
+  padding: 8px 0;
+}
+
+footer .footer p {
+  margin: 0 0 8px;
+}
+
+footer .footer a:any-link {
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+}
+
+footer .footer h4 {
+  color: var(--background-color);
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer li {
+  padding: 5px 0;
+}
+
+/* ---- Top quick-links row (section 1): 3 aligned columns, divider beneath each ---- */
+footer .footer .section:first-child ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+footer .footer .section:first-child li {
+  padding: 0 0 20px;
+  border-bottom: 2px solid rgb(255 255 255 / 25%);
+}
+
+footer .footer .section:first-child li a {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+}
+
+/* ---- Main link columns (section 2): Products / Life Moments / Help and support ----
+   Content is flat (h4, ul, h4, ul, h4, ul). Mobile stacks in order; desktop
+   pairs each h4 over its ul across 3 columns via column-first grid flow. */
+footer .footer .section:nth-child(2) h4 {
+  margin-top: 24px;
+}
+
+footer .footer .section:nth-child(2) h4:first-child {
+  margin-top: 0;
+}
+
+/* ---- Legal / social / copyright band (section 3) ---- */
+footer .footer .section:last-child {
+  margin-top: 16px;
+  border-top: 1px solid rgb(255 255 255 / 25%);
+  padding-top: 28px;
+}
+
+/* Legal links: horizontal row separated by subtle dividers */
+footer .footer .section:last-child ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-bottom: 24px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+}
+
+footer .footer .section:last-child ul li {
+  position: relative;
+  padding: 0;
+}
+
+footer .footer .section:last-child ul li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  width: 1px;
+  height: 14px;
+  background-color: rgb(255 255 255 / 30%);
+  transform: translateY(-50%);
+}
+
+footer .footer .section:last-child ul a:hover {
+  color: rgb(255 255 255 / 85%);
+  text-decoration: underline;
+}
+
+footer .footer .section:last-child p {
+  margin: 12px 0 0;
+}
+
+/* Social links row (Facebook / LinkedIn): rounded chip buttons */
+footer .footer .section:last-child p:first-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer .footer .section:last-child p:first-of-type a {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgb(255 255 255 / 40%);
+  border-radius: 2em;
+  padding: 6px 18px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+footer .footer .section:last-child p:first-of-type a:hover,
+footer .footer .section:last-child p:first-of-type a:focus {
+  background-color: var(--background-color);
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+footer .footer .section:last-child p:last-child {
+  margin-top: 20px;
+  color: rgb(255 255 255 / 70%);
+  font-size: var(--body-font-size-xs);
+}
+
+@media (width >= 900px) {
+  footer .footer > div {
+    padding: 40px 32px;
+  }
+
+  footer .footer .section:first-child ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  /* 3 columns, 2 rows: each h4 sits over its ul (column-first fill) */
+  footer .footer .section:nth-child(2) .default-content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-auto-flow: column;
+    column-gap: 48px;
+  }
+
+  footer .footer .section:nth-child(2) h4,
+  footer .footer .section:nth-child(2) h4:first-child {
+    margin-top: 0;
+  }
+}

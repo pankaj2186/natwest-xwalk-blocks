@@ -1,0 +1,32 @@
+<form class="mortgage-calculator-form">
+  <div class="mortgage-calculator-field">
+    <label for="mc-amount">Loan amount (&#163;)
+      <span class="mortgage-calculator-help" tabindex="0" title="The total amount you plan to borrow.">?</span>
+    </label>
+    <input id="mc-amount" name="amount" type="number" min="1000" step="1000" value="250000" required>
+  </div>
+
+  <div class="mortgage-calculator-field">
+    <label for="mc-rate">Interest rate (%)</label>
+    <div class="mortgage-calculator-stepper">
+      <button type="button" class="mortgage-calculator-stepper-btn" data-step="-0.1" aria-label="Decrease interest rate">&minus;</button>
+      <input id="mc-rate" name="rate" type="number" min="0" max="20" step="0.1" value="4.5" required>
+      <button type="button" class="mortgage-calculator-stepper-btn" data-step="0.1" aria-label="Increase interest rate">&plus;</button>
+    </div>
+    <p class="mortgage-calculator-hint">Our current Standard Variable Rate (SVR) is 6.74%. Check with your lender what their SVR is for a more accurate result.</p>
+  </div>
+
+  <div class="mortgage-calculator-field">
+    <label for="mc-term">Term (years)</label>
+    <div class="mortgage-calculator-stepper">
+      <button type="button" class="mortgage-calculator-stepper-btn" data-step="-1" aria-label="Decrease term">&minus;</button>
+      <input id="mc-term" name="term" type="number" min="1" max="40" step="1" value="25" required>
+      <button type="button" class="mortgage-calculator-stepper-btn" data-step="1" aria-label="Increase term">&plus;</button>
+    </div>
+    <p class="mortgage-calculator-hint">How many years you have left to repay your mortgage in full.</p>
+  </div>
+
+  <button type="submit" class="mortgage-calculator-submit">Calculate</button>
+
+  <div class="mortgage-calculator-result" aria-live="polite"></div>
+</form>

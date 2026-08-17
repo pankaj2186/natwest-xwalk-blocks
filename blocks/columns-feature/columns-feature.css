@@ -1,0 +1,164 @@
+.columns-feature > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-feature img {
+  width: 100%;
+}
+
+.columns-feature > div > div {
+  order: 1;
+}
+
+.columns-feature > div > .columns-feature-img-col {
+  order: 0;
+}
+
+.columns-feature > div > .columns-feature-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-feature > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-feature > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  /* Single-column variant: content should span the full width, not half */
+  .columns-feature.columns-feature-1-cols > div {
+    display: block;
+  }
+}
+
+/* Separate a feature block from whatever block precedes it (cards, carousel, another feature) */
+.columns-feature-wrapper {
+  margin-top: 48px;
+}
+
+.columns-feature-wrapper:first-child {
+  margin-top: 0;
+}
+
+/* Delimiting light-purple panel — only on the final "APP scams" info block */
+.columns-feature-wrapper:last-of-type {
+  margin-top: 56px;
+}
+
+.columns-feature-wrapper:last-of-type .columns-feature.columns-feature-1-cols {
+  background-color: var(--nw-purple-tint, #f2eaf9);
+  border: 1px solid rgb(60 16 83 / 8%);
+  border-radius: 16px;
+  padding: 40px 24px;
+}
+
+/* First single-column variant (e.g. "Support 24/7") — panel styling + breathing room */
+.columns-feature-wrapper:not(:last-of-type):has(.columns-feature-1-cols) {
+  margin-top: 52px;
+  margin-bottom: 52px;
+}
+
+.columns-feature-wrapper:not(:last-of-type) .columns-feature.columns-feature-1-cols {
+  background-color: var(--light-color, #f2f2f8);
+  border-radius: 20px;
+  padding: 40px 32px;
+}
+
+/* Subsequent 1-col blocks (e.g. "Cash ISA rules") — no panel, normal spacing */
+.columns-feature-wrapper:has(.columns-feature-1-cols) ~ .columns-feature-wrapper:not(:last-of-type):has(.columns-feature-1-cols) {
+  margin-top: 48px;
+  margin-bottom: 40px;
+}
+
+.columns-feature-wrapper:has(.columns-feature-1-cols) ~ .columns-feature-wrapper:not(:last-of-type):has(.columns-feature-1-cols) .columns-feature.columns-feature-1-cols {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+.columns-feature.columns-feature-1-cols h1,
+.columns-feature.columns-feature-1-cols h2,
+.columns-feature.columns-feature-1-cols h3,
+.columns-feature.columns-feature-1-cols h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 28px;
+  color: var(--nw-purple, #3c1053);
+}
+
+.columns-feature.columns-feature-1-cols p:not(.button-container) {
+  margin: 0 0 28px;
+  max-width: 640px;
+  color: var(--nw-grey-text, #646068);
+  font-size: 17px;
+}
+
+/* Mobile: CTAs stack, left-aligned, full spacing between them */
+.columns-feature.columns-feature-1-cols p.button-container,
+.columns-feature.columns-feature-1-cols p.button-wrapper {
+  margin: 0;
+}
+
+.columns-feature.columns-feature-1-cols p.button-container + p.button-container,
+.columns-feature.columns-feature-1-cols p.button-wrapper + p.button-wrapper {
+  margin-top: 12px;
+}
+
+/* Tablet/desktop: CTAs sit side by side */
+@media (width >= 600px) {
+  .columns-feature.columns-feature-1-cols p.button-container,
+  .columns-feature.columns-feature-1-cols p.button-wrapper {
+    display: inline-block;
+  }
+
+  .columns-feature.columns-feature-1-cols p.button-container + p.button-container,
+  .columns-feature.columns-feature-1-cols p.button-wrapper + p.button-wrapper {
+    margin-top: 0;
+    margin-left: 16px;
+  }
+}
+
+/* Secondary CTA (any button after the first): outlined, fills purple on hover/focus */
+.columns-feature.columns-feature-1-cols p.button-container ~ p.button-container a.button:any-link,
+.columns-feature.columns-feature-1-cols p.button-wrapper ~ p.button-wrapper a.button:any-link {
+  background-color: transparent;
+  border-color: var(--nw-purple-bright, #5e10b1);
+  color: var(--nw-purple-bright, #5e10b1);
+}
+
+.columns-feature.columns-feature-1-cols p.button-container ~ p.button-container a.button:hover,
+.columns-feature.columns-feature-1-cols p.button-container ~ p.button-container a.button:focus,
+.columns-feature.columns-feature-1-cols p.button-wrapper ~ p.button-wrapper a.button:hover,
+.columns-feature.columns-feature-1-cols p.button-wrapper ~ p.button-wrapper a.button:focus {
+  background-color: var(--nw-purple-bright, #5e10b1);
+  border-color: var(--nw-purple-bright, #5e10b1);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .columns-feature-wrapper:not(:last-of-type) .columns-feature.columns-feature-1-cols {
+    padding: 48px 56px;
+  }
+}
+
+.columns-feature-wrapper:last-of-type .columns-feature.columns-feature-1-cols p {
+  max-width: none;
+  color: var(--nw-grey-text, #646068);
+}
+
+.columns-feature-wrapper:last-of-type .columns-feature.columns-feature-1-cols a:not(.button) {
+  color: var(--nw-purple-bright, #5e10b1);
+  font-weight: 600;
+}
+
+@media (width >= 900px) {
+  .columns-feature-wrapper:last-of-type .columns-feature.columns-feature-1-cols {
+    padding: 36px 40px;
+  }
+}

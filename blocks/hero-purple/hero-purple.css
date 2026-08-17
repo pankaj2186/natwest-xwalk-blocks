@@ -1,0 +1,111 @@
+.hero-purple-container .hero-purple-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* NatWest hero: full-bleed purple banner, text left + balloon image right */
+.hero-purple {
+  background-color: var(--nw-purple-mid, #5a287d);
+  color: #fff;
+  padding: 40px 24px;
+}
+
+.hero-purple .hero-purple-content h1,
+.hero-purple .hero-purple-content h2,
+.hero-purple .hero-purple-content p {
+  color: #fff;
+}
+
+.hero-purple .hero-purple-content h1 {
+  margin-top: 0;
+}
+
+.hero-purple .hero-purple-content em {
+  color: var(--nw-gold, #f5c400);
+  font-style: normal;
+}
+
+/* plain (non-button) links authored inline in the hero text: keep them
+   legible on the purple background instead of inheriting the global
+   dark-purple link color. */
+.hero-purple .hero-purple-content a:any-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.hero-purple .hero-purple-content em a:any-link {
+  color: var(--nw-gold, #f5c400);
+}
+
+.hero-purple .hero-purple-content a.button:any-link {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--nw-purple);
+}
+
+.hero-purple .hero-purple-content a.button:hover,
+.hero-purple .hero-purple-content a.button:focus {
+  background-color: var(--nw-purple);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+}
+
+.hero-purple .hero-purple-image {
+  text-align: center;
+}
+
+.hero-purple .hero-purple-image picture,
+.hero-purple .hero-purple-image img {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+}
+
+/* text-only variant (product-group banners) */
+.hero-purple.no-image {
+  background-color: var(--nw-purple, #3c1053);
+}
+
+.hero-purple.no-image * {
+  color: #fff;
+}
+
+/* "Dark purple" style option: same deep purple as the no-image variant,
+   but author-selectable even when an image is present. */
+.hero-purple.dark {
+  background-color: var(--nw-purple, #3c1053);
+}
+
+@media (width >= 900px) {
+  .hero-purple {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    min-height: 360px;
+    max-width: var(--content-max-width, 1200px);
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* content left, image right, regardless of source row order */
+  .hero-purple .hero-purple-content {
+    order: 1;
+  }
+
+  .hero-purple .hero-purple-image {
+    order: 2;
+    text-align: right;
+  }
+
+  /* "Image left" style option: swap the two columns */
+  .hero-purple.image-left .hero-purple-content {
+    order: 2;
+  }
+
+  .hero-purple.image-left .hero-purple-image {
+    order: 1;
+    text-align: left;
+  }
+}

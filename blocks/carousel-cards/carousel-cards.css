@@ -1,0 +1,108 @@
+.carousel-cards .carousel-cards-slides-container {
+  position: relative;
+}
+
+.carousel-cards .carousel-cards-slides,
+.carousel-cards .carousel-cards-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-cards .carousel-cards-slides {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-cards .carousel-cards-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card-style slides: image on top, text below, multiple visible per view */
+.carousel-cards .carousel-cards-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  background-color: var(--background-color, #fff);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-image {
+  line-height: 0;
+}
+
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-image picture > img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content {
+  padding: 16px 8px;
+  color: var(--text-color);
+}
+
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content h1,
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content h2,
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content h3,
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content h4,
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content h5,
+.carousel-cards .carousel-cards-slide .carousel-cards-slide-content h6 {
+  color: var(--text-dark, #3c1053);
+  margin: 0 0 12px;
+}
+
+.carousel-cards .carousel-cards-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 16px;
+  line-height: 0;
+}
+
+.carousel-cards .carousel-cards-slide-indicator button {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  padding: 0;
+  border: 4px solid transparent;
+  box-sizing: content-box;
+  background-clip: padding-box;
+  border-radius: 50%;
+  background-color: #dadada;
+  transition: background-color 0.2s;
+}
+
+.carousel-cards .carousel-cards-slide-indicator button:disabled,
+.carousel-cards .carousel-cards-slide-indicator button:hover,
+.carousel-cards .carousel-cards-slide-indicator button:focus-visible {
+  background-color: var(--brand-purple, #3c1053);
+}
+
+/* Show multiple cards per view on wider screens */
+@media (width >= 600px) {
+  /* Equal-height cards look intentional when several sit side by side */
+  .carousel-cards .carousel-cards-slides {
+    align-items: stretch;
+  }
+
+  .carousel-cards .carousel-cards-slide {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-cards .carousel-cards-slide {
+    flex: 0 0 calc((100% - 48px) / 3);
+  }
+}

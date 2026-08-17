@@ -1,0 +1,96 @@
+.ranking-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.ranking-chart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ranking-chart-rank {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 1.4em;
+  height: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--nw-orange-accent);
+}
+
+.ranking-chart-name {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 150px;
+  overflow: hidden;
+  color: var(--text-color);
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ranking-chart-name p {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ranking-chart-pct-cell {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 12px;
+}
+
+.ranking-chart-bar {
+  flex: 1;
+  height: 14px;
+  border-radius: 999px;
+  background-color: var(--nw-grey-tint);
+  overflow: hidden;
+}
+
+.ranking-chart-bar-fill {
+  box-sizing: border-box;
+  height: 100%;
+  border-radius: 999px;
+  background-color: var(--nw-orange-accent);
+}
+
+.ranking-chart-pct {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 3em;
+  color: var(--text-color);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Own-brand row: de-emphasised outline treatment rather than a bold fill,
+   consistent with how this disclosure is presented on natwest.com.
+   box-sizing: border-box on the base rules keeps the rank/pct boxes the
+   same overall size as the plain rows, so the border doesn't push the
+   name column or shrink the bar. */
+.ranking-chart-row-highlight .ranking-chart-rank,
+.ranking-chart-row-highlight .ranking-chart-pct {
+  border: 2px solid var(--nw-orange-accent);
+  border-radius: 999px;
+  text-align: center;
+}
+
+.ranking-chart-row-highlight .ranking-chart-bar-fill {
+  background-color: transparent;
+  border: 2px solid var(--nw-orange-accent);
+}
+
+.ranking-chart-row-highlight .ranking-chart-name {
+  font-weight: 700;
+}

@@ -1,0 +1,28 @@
+{
+  "definitions": [
+    {
+      "title": "Columns Feature",
+      "id": "columns-feature",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/columns/v1/columns",
+            "template": {
+              "columns": "2",
+              "rows": "1"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [],
+  "filters": [
+    {
+      "id": "columns-feature",
+      "components": [
+        "column"
+      ]
+    }
+  ]
+}

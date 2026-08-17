@@ -1,0 +1,26 @@
+.quote blockquote {
+  margin: 0;
+  padding: 4px 0 4px 24px;
+  border-left: 4px solid var(--link-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-style: italic;
+  color: var(--dark-color);
+}
+
+.quote blockquote p {
+  margin: 0;
+}
+
+.quote cite {
+  display: block;
+  margin: 8px 0 0 28px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+}
+
+.quote cite::before {
+  content: '— ';
+}

@@ -1,0 +1,107 @@
+{
+  "definitions": [
+    {
+      "title": "Section",
+      "id": "section",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "section",
+      "fields": [
+        {
+          "component": "text",
+          "name": "name",
+          "label": "Section Name",
+          "description": "The label shown for this section in the Content Tree"
+        },
+        {
+          "component": "multiselect",
+          "name": "style",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Highlight",
+              "value": "highlight"
+            },
+            {
+              "name": "Purple tint",
+              "value": "purple-tint"
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            },
+            {
+              "name": "Swoosh",
+              "value": "swoosh"
+            },
+            {
+              "name": "With sidebar",
+              "value": "with-sidebar"
+            },
+            {
+              "name": "Disclaimer",
+              "value": "disclaimer"
+            },
+            {
+              "name": "Checklist",
+              "value": "checklist"
+            },
+            {
+              "name": "Guides",
+              "value": "guides"
+            },
+            {
+              "name": "Cards grid",
+              "value": "cards-grid"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "section",
+      "components": [
+        "text",
+        "image",
+        "button",
+        "title",
+        "hero",
+        "hero-purple",
+        "cards",
+        "cards-account",
+        "cards-cover",
+        "cards-icon",
+        "carousel-cards",
+        "columns",
+        "columns-feature",
+        "fragment",
+        "accordion-help",
+        "accordion-legal",
+        "tabs-tracker",
+        "search-faq",
+        "widget",
+        "articles",
+        "article-byline",
+        "table-of-contents",
+        "breadcrumbs",
+        "quote",
+        "ranking-chart",
+        "cf-card"
+      ]
+    }
+  ]
+}

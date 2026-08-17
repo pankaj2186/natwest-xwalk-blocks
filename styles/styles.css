@@ -1,0 +1,562 @@
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+@import url('brand.css');
+
+/* Design tokens (colors, fonts, sizes, spacing) live in brand.css */
+
+/* fallback fonts */
+@font-face {
+  font-family: roboto-condensed-fallback;
+  size-adjust: 88.82%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: roboto-fallback;
+  size-adjust: 99.529%;
+  src: local('Arial');
+}
+
+body {
+  display: none;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  height: var(--nav-height);
+}
+
+header .header,
+footer .footer {
+  visibility: hidden;
+}
+
+header .header[data-block-status="loaded"],
+footer .footer[data-block-status="loaded"] {
+  visibility: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  scroll-margin: 40px;
+}
+
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+p,
+dl,
+ol,
+ul,
+pre {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+}
+
+blockquote {
+  margin: 32px 0;
+  padding: 4px 0 4px 24px;
+  border-left: 4px solid var(--link-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-style: italic;
+  color: var(--dark-color);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+code,
+pre {
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--light-color);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+main > div {
+  margin: 40px 16px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* links */
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* buttons */
+p.button-wrapper {
+  margin: 12px 0;
+}
+
+a.button:any-link,
+button.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 2.4em;
+  padding: 0.65em 1.6em;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: normal;
+  overflow-wrap: break-word;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+a.button:active,
+button.button:active {
+  transform: translateY(1px);
+}
+
+a.button[aria-disabled="true"],
+button.button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+a.button.primary,
+button.button.primary {
+  border-color: var(--link-color);
+  background-color: var(--link-color);
+  color: var(--background-color);
+}
+
+a.button.primary:hover,
+a.button.primary:focus-visible,
+button.button.primary:hover,
+button.button.primary:focus-visible {
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  box-shadow: 0 4px 12px rgb(60 16 83 / 30%);
+}
+
+a.button.primary[aria-disabled="true"],
+a.button.primary[aria-disabled="true"]:hover,
+a.button.primary[aria-disabled="true"]:focus-visible,
+button.button.primary:disabled,
+button.button.primary:disabled:hover,
+button.button.primary:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--text-color);
+  box-shadow: none;
+}
+
+a.button.secondary,
+button.button.secondary {
+  border-color: var(--link-color);
+  background-color: transparent;
+  color: var(--link-color);
+}
+
+a.button.secondary:hover,
+a.button.secondary:focus-visible,
+button.button.secondary:hover,
+button.button.secondary:focus-visible {
+  background-color: var(--link-color);
+  color: var(--background-color);
+}
+
+a.button.secondary[aria-disabled="true"],
+a.button.secondary[aria-disabled="true"]:hover,
+a.button.secondary[aria-disabled="true"]:focus-visible,
+button.button.secondary:disabled,
+button.button.secondary:disabled:hover,
+button.button.secondary:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--text-color);
+}
+
+/* high-impact call-to-action */
+a.button.accent,
+button.button.accent {
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--background-color);
+}
+
+a.button.accent:hover,
+a.button.accent:focus-visible,
+button.button.accent:hover,
+button.button.accent:focus-visible {
+  border-color: var(--nw-purple-mid);
+  background-color: var(--nw-purple-mid);
+  box-shadow: 0 4px 12px rgb(60 16 83 / 40%);
+}
+
+a.button.accent[aria-disabled="true"],
+a.button.accent[aria-disabled="true"]:hover,
+a.button.accent[aria-disabled="true"]:focus-visible,
+button.button.accent:disabled,
+button.button.accent:disabled:hover,
+button.button.accent:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--text-color);
+}
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.icon img {
+  height: 100%;
+  width: 100%;
+}
+
+/* standalone default-content image (e.g. an article's intro/hero image).
+   When a section mixes a block (like breadcrumbs) with default content,
+   Edge Delivery wraps each run in its own *-wrapper div, so the image can
+   sit one level deeper than a section with only default content - cover
+   both cases rather than letting the image render at its full intrinsic
+   height (which can dwarf the rest of the page). */
+main .section > div > picture > img,
+main .section > div > p > picture > img,
+main .section > div > .default-content-wrapper > picture > img,
+main .section > div > .default-content-wrapper > p > picture > img {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* sections */
+main > .section {
+  margin: 40px 0;
+}
+
+main > .section > div {
+  max-width: var(--content-max-width);
+  margin: auto;
+  padding: 0 24px;
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 32px;
+  }
+}
+
+/* section metadata */
+main .section.light,
+main .section.highlight {
+  background-color: var(--light-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.purple-tint {
+  background-color: var(--nw-purple-tint);
+  margin: 0;
+  padding: 40px 0;
+}
+
+/* purple-tint: primary CTA uses deep purple for contrast on tinted background */
+main .section.purple-tint a.button.primary:any-link {
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+main .section.purple-tint a.button.primary:hover,
+main .section.purple-tint a.button.primary:focus-visible {
+  background-color: var(--nw-purple-mid);
+  border-color: var(--nw-purple-mid);
+  box-shadow: 0 4px 12px rgb(60 16 83 / 40%);
+}
+
+/* default-content CTA groups: consistent spacing between stacked CTAs.
+   Scoped to default-content divs (a section > div with no block class). */
+main .section > div:not([class*="-container"]) p.button-wrapper + p.button-wrapper {
+  margin-top: 12px;
+}
+
+/* purple-tint: secondary CTA becomes a plain underlined text link */
+main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:any-link {
+  display: inline;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 4px 0;
+  color: var(--link-color);
+  text-decoration: underline;
+  font-weight: 400;
+  white-space: normal;
+  box-shadow: none;
+}
+
+main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:hover,
+main .section.purple-tint > div:not([class*="-container"]) p.button-wrapper ~ p.button-wrapper a.button:focus-visible {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--dark-color);
+  box-shadow: none;
+  transform: none;
+}
+
+main .section.dark,
+main .section.swoosh {
+  color: var(--background-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.dark {
+  background-color: var(--dark-color);
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6,
+main .section.swoosh h1,
+main .section.swoosh h2,
+main .section.swoosh h3,
+main .section.swoosh h4,
+main .section.swoosh h5,
+main .section.swoosh h6 {
+  color: var(--background-color);
+}
+
+main .section.dark a:any-link,
+main .section.swoosh a:any-link {
+  color: var(--background-color);
+  text-decoration: underline;
+}
+
+/* swoosh: purple banner with a hand-drawn pink underline accent below the heading,
+   e.g. "Our brands" - see brand.css for --nw-pink-accent */
+main .section.swoosh {
+  background-color: var(--nw-purple-mid);
+}
+
+main .section.swoosh h1,
+main .section.swoosh h2,
+main .section.swoosh h3,
+main .section.swoosh h4,
+main .section.swoosh h5,
+main .section.swoosh h6 {
+  position: relative;
+  display: inline-block;
+}
+
+main .section.swoosh h1::after,
+main .section.swoosh h2::after,
+main .section.swoosh h3::after,
+main .section.swoosh h4::after,
+main .section.swoosh h5::after,
+main .section.swoosh h6::after {
+  content: '';
+  position: absolute;
+  left: -3%;
+  bottom: -0.3em;
+  width: 106%;
+  height: 0.18em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 30' preserveAspectRatio='none'%3E%3Cpath d='M6,15 C100,3 200,23 294,11' stroke='%23f0195b' stroke-width='17' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* disclaimer: thin, dark, small-print regulatory notice band */
+main .section.disclaimer {
+  margin: 0;
+  padding: 12px 0;
+  background-color: var(--dark-color);
+}
+
+main .section.disclaimer p {
+  margin: 0;
+  color: var(--background-color);
+  font-size: var(--body-font-size-s);
+  text-align: center;
+}
+
+/* checklist: turns a plain <ul> into a tick list */
+main .section.checklist ul {
+  list-style: none;
+  margin: 0.8em 0;
+  padding: 0;
+}
+
+main .section.checklist li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 28px;
+}
+
+main .section.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--nw-purple-mid, var(--link-color));
+  font-weight: 700;
+}
+
+/* guides: two link-list columns, each with a colour accent rule above its heading */
+main .section.guides .columns > div {
+  display: grid;
+  gap: 32px;
+}
+
+@media (width >= 600px) {
+  main .section.guides .columns > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+main .section.guides .columns > div > div {
+  padding-top: 12px;
+  border-top: 3px solid var(--nw-pink-accent, var(--link-color));
+}
+
+main .section.guides .columns > div > div:nth-child(2) {
+  border-top-color: var(--nw-orange-accent, var(--dark-color));
+}
+
+main .section.guides ul {
+  list-style: none;
+  margin: 0.5em 0 0;
+  padding: 0;
+}
+
+main .section.guides li {
+  margin-bottom: 12px;
+}
+
+/* with-sidebar: single-column article body (matches natwest.com's own article
+   template - no floating rail, no hero image; the toc sits inline right
+   after the byline, and related-articles is a full-width card grid at the
+   end). Keeping the style name for backwards compatibility with authored
+   content, but it's really just "article" styling now. */
+main .section.with-sidebar {
+  max-width: 820px;
+  margin: 40px auto;
+}
+
+main .section.with-sidebar + .section {
+  max-width: 820px;
+  margin: 64px auto 40px;
+}
+
+main .section.with-sidebar h3 {
+  margin-top: 1.6em;
+  font-family: var(--body-font-family);
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+main .section.with-sidebar .table-of-contents {
+  margin: 24px 0 40px;
+}
+
+main .section.with-sidebar > .default-content-wrapper p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* cards-grid: lay out multiple standalone cards (e.g. several cf-card
+   blocks) in equal-width, equal-height columns, wrapping on narrow
+   screens. Grid (not flex) so column width doesn't depend on content. */
+main .section.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
+  gap: 24px;
+}
+
+main .section.cards-grid > h1,
+main .section.cards-grid > h2,
+main .section.cards-grid > h3 {
+  grid-column: 1 / -1;
+}
+
+/* Grid items default to min-width: auto, so a wide image can force its
+   column past its 1fr share — reset it so columns stay equal. */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.cards-grid > div {
+  min-width: 0;
+}
+
+main .section.cards-grid .cf-card {
+  max-width: none;
+  height: 100%;
+}
