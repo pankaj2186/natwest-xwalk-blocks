@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p189773-e1977501.adobeaemcloud.com/bin/franklin.delivery/skiper76/natwest-xwalk/main"
+    url: "https://author-p189773-e1977501.adobeaemcloud.com/bin/franklin.delivery/pankaj2186/natwest-xwalk-blocks/main"
     type: "markup"
     suffix: ".html"
