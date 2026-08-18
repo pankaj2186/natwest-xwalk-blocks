@@ -99,6 +99,7 @@
         "table-of-contents",
         "breadcrumbs",
         "quote",
+        "quote-lab",
         "ranking-chart",
         "cf-card"
       ]
