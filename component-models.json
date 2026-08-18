@@ -378,6 +378,25 @@
     ]
   },
   {
+    "id": "columns",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
     "id": "contentfragment",
     "fields": [
       {
@@ -395,7 +414,14 @@
         "value": "",
         "valueType": "string",
         "description": "Persisted variation for publish; leave empty for master.",
-        "condition": { "==": [ { "var": "__alwaysFalse" }, true ] }
+        "condition": {
+          "==": [
+            {
+              "var": "__alwaysFalse"
+            },
+            true
+          ]
+        }
       },
       {
         "component": "select",
@@ -442,48 +468,6 @@
             "value": "text-center"
           }
         ]
-      },
-      {
-        "component": "select",
-        "name": "ctastyle",
-        "label": "CTA Style",
-        "options": [
-         {
-            "name": "Link",
-            "value": "cta-link"
-          },
-          {
-            "name": "Primary Button",
-            "value": "cta-button"
-          },
-          {
-            "name": "Secondary Button",
-            "value": "cta-button-secondary"
-          },
-          {
-            "name": "Dark Button",
-            "value": "cta-button-dark"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "columns",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
-      },
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "rows",
-        "value": "",
-        "label": "Rows"
       }
     ]
   },
@@ -596,6 +580,25 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "quote-lab",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "quote",
+        "value": "",
+        "label": "Quote",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "author",
+        "label": "Author",
+        "value": "",
         "valueType": "string"
       }
     ]
